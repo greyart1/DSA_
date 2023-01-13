@@ -1,0 +1,75 @@
+#include <iostream>
+#include<vector>
+#include<list>
+using namespace std;
+
+
+class node{
+    public:
+        int data;
+        node* left;
+        node* right;
+        
+    
+};
+
+node* createnode(){
+    int data;
+    cout<<"Enter root data\n";
+    cin>>data;
+    
+    node* n;
+    n=new node;
+    n->data=data;
+    
+    
+    if(data==-1){
+        return NULL;
+    }
+    
+    
+    cout<<"Enter data for inserting in the left of "<<data<<"\n";
+    n->left=createnode();
+    cout<<"Enter data for inserting in the right of "<<data<<"\n";
+
+    n->right=createnode();
+    
+    
+
+    
+   return n; 
+}
+
+void preorder(node* a){
+    if(a!=NULL){
+        cout<<a->data;
+        preorder(a->left);
+        preorder(a->right);
+
+        
+    }
+}
+
+
+
+int main(){
+    // node * p=createnode(4);
+    // node* p1=createnode(1);
+    // node* p2=createnode(6);
+    // node* p3=createnode(5);
+    // node* p4=createnode(2);
+    
+    // p->left=p1;
+    // p->right=p2;
+    // p1->left=p3;
+    // p1->right=p4;
+    
+    // preorder(p);
+    
+    
+    node* p=createnode();
+    preorder(p);
+    
+
+    return 0;
+}
